@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&family=Work+Sans&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    border: 0;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    height: 97vh;
+    overflow: hidden;
+}
+
+img, picture, video, svg {
+    display: block;
+    max-width: 100%;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6, a {
+    overflow-wrap: break-word;
+    color: #505050;
+    margin: 0;
+}
+
+#root, #__next {
+    isolation: isolate;
+}
+
+.ns {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* 
+* Media Queries 
+*/
+@media screen and (min-width: 350px) {
+    p {
+        font-size: 0.5rem;
+    }
+
+    .element {
+        min-height: 20px;
+        min-width: 50px;
+    }
+
+}
+
+@media screen and (min-width: 480px) {
+    p {
+        font-size: 0.7rem;
+    }
+
+    .element {
+        min-height: 20px;
+        min-width: 50px;
+    }
+}
+
+@media screen and (min-width: 750px) {
+    .element.element:not(#headerIcon) {
+        min-height: 40px;
+        min-width: 50px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .element.element:not(#headerIcon) {
+        min-height: 60px;
+        min-width: 50px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .element.element:not(#headerIcon) {
+        min-width: 50px;
+    }
+}
+
+/*
+General css styling and selectors
+*/
+
+.hidden {
+    visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: 'Rubik', sans-serif;
+    /* background-color: linear-gradient( white , black); */
+}
+
+.dropdown-menu, nav, .navbar-nav, a, label {
+    list-style: none;
+    text-decoration: none;
+    color: #505050;
+}
+
+.row {
+    --bs-gutter-x: 0;
+    --bs-gutter-y: 0;
+}
+
+h1, i, a {
+    padding: 10px;
+    text-align: center;
+}
+
+.container {
+    text-align: center;
+}
+
+.inline-block {
+    display: inline-block;
+    text-align: center;
+}
+
+#heading-div {
+    margin-top: 20px;
+    min-height: 25vh;
+}
+
+.element {
+    border-radius: 10px;
+    box-sizing: border-box;
+    display: inline-block;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border: 5px solid #40ff2f;
+    -webkit-animation: change-color 10s ease-in 0s infinite normal;
+    -moz-animation: change-color 10s ease-in 0s infinite normal;
+    -ms-animation: change-color 10s ease-in 0s infinite normal;
+    animation: change-color 10s ease-in 0s infinite normal;
+}
+
+.element h1 {
+    padding: 0px 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+@keyframes change-color {
+    15% {
+        border: 5px solid #40ff2f;
+    }
+
+    35% {
+        border: 5px solid #ff2ff5
+    }
+
+    70% {
+        border: 5px solid rgb(0, 247, 255);
+    }
+
+    85% {
+        border: 5px solid #40ff2f;
+    }
+}
+
+.atomic-number {
+    font-size: xx-small;
+    padding-left: 5px;
+    align-self: flex-start;
+    text-align: left;
+}
+
+.atomic-name {
+    font-size: xx-small;
+    text-align: center;
+    padding-left: 5px;
+}
+
+.main-heading {
+    vertical-align: top;
+    font-weight: bold;
+    padding: 20px 0px;
+    display: inline-block;
+}
+
+.sub-heading {
+    font-size: 1em;
+    padding-bottom: 30px;
+}
+
+.background {
+    position: absolute;
+    z-index: -1;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #ededed;
+}
+
+#gameDiv {
+    min-height: 65vh;
+}
+
+#welcome-div {
+    width: 100%;
+    min-height: 65vh;
+    background-color: aqua;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#grid-div {
+    width: 100%;
+    min-height: 65vh;
+    padding: 25px;
+    background-color: blue;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 1rem;
+}
+
+.card {}
