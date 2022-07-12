@@ -1,38 +1,57 @@
 $(document).ready(function () {
     var randomNumberArray = [];
+    var data;
 
+    resetGame();
 });
+
+$(document)
 
 function playGame() {
     
     //get number of items from local storage
     var difficulty = setDifficulty();
-    // //console.log(localStorage);
-    // getPeriodicElements(function (cb) {
-    //     console.log(cb);
-    // });
+    var randomNumberArray = generateRandomNumbers();
 
-    //Iterate through grid and add number of div cards
-    for (var i = 0; i < difficulty; i++) {
-        var div = document.createElement("div");
-        div.classList += "element";
+    getPeriodicElements(getData(element => {
+
+        //Iterate through grid and add number of div cards
+        randomNumberArray.forEach(number => {
+
+            var div = document.createElement("div");
+            div.classList += "element";
+            console.log(element[number]);
+            
+            var atomicNumber = document.createElement("p1");
+            atomicNumber.classList += "atomic-number";
+            atomicNumber.textContent = element[number].atomicNumber;
+
+            var h1 = document.createElement("h1");
+            h1.textContent = element[number].symbol;
+            h1.classList += "atomic-symbol";
+
+            var atomicName = document.createElement("p1");
+            var atomicNamesub = document.createElement("p1");
+            atomicName.classList += "atomic-name";
+            atomicName.textContent = element[number].name;
+            atomicNamesub.classList += "atomic-name";
+            
+            var dotIndex = element[number].atomicMass.indexOf('.', 4);
+            atomicNamesub.textContent = element[number].atomicMass.toString().substring(0,dotIndex+2);
+
+            var elements = [atomicNumber, h1, atomicName, atomicNamesub];
+            elements.forEach(element => {
+                div.append(element);
+            });
+            $("#grid-div").append(div);
         
-        var atomicNumber = document.createElement("p1");
-        atomicNumber.classList += "atomic-number";
-
-        var h1 = document.createElement("h1");
-
-        var AtomicName = document.createElement("p1");
-        var AtomicNamesub = document.createElement("p1");
-        AtomicName.classList += "atomic-name";
-        AtomicNamesub.classList += "atomic-name";
-
-        var elements = [atomicNumber, h1, AtomicName, AtomicNamesub];
-        elements.forEach(element => {
-            div.append(element);
         });
-        $("#grid-div").append(div);  
-    }
+    }));
+}
+
+function getData(data)
+{
+    return data;
 }
 
 function resetGame() {
@@ -45,9 +64,10 @@ function setDifficulty(difficulty) {
     //collect grid and unhide
     var grid = $("#grid-div");
     grid.removeClass("hidden");
+    
 
     //set local storage and set grid into correct number of columns
-    if (difficulty == "easy" || difficulty == null) {
+    if (difficulty == "easy" || difficulty == undefined) {
         localStorage.setItem("difficulty", 12);
     }
 
@@ -65,29 +85,35 @@ function setDifficulty(difficulty) {
 function generateRandomNumbers() {
     var number = localStorage.getItem("difficulty");
     var numberArray = [];
-
-    for (var i = 0; i < number; i++){
-        numberArray.push(Math.floor(Math.random() * number));
+    do {
+        var randNum = Math.floor(Math.random() * 119);
+        numberArray.push(randNum);
+        numberArray.push(randNum);    
     }
+    while (numberArray.length < number);
 
-    if (i == number) {
-        return numberArray; 
-    }
+    //shuffling aligrithm taken from https://dev.to/codebubb/how-to-shuffle-an-array-in-javascript-2ikj
+    const shuffledArray = numberArray.sort((a, b) => 0.5 - Math.random());
+    return shuffledArray; 
+
+
 }
 
 document.addEventListener("DOMContentLoaded", function (event) {
     
-    window.addEventListener( 'onClick', function ( event ) {
-        var modal = this.document.getElementById("modal");
+    window.addEventListener( 'onclick', function ( event ) {
+        var modal = this.document.getElementById("exampleModalCenter");
 
         if (event.target.classList.includes("btn")) {
+            console.log(event.target)
             switch (event.target) {
                 case "easyButton": // Easy mode clicked
                     modal.className += "hidden";
                     setDifficulty("easy");
+                    modal.classList.remove("show");
                     break;
     
-                case "medButton": // Medium Mode clicked
+                case "mediumButton": // Medium Mode clicked
                     modal.className += "hidden";
                     setDifficulty("medium");
                     break;
@@ -98,9 +124,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     break;
             }
         }
+        console.log(event.target)
 
-        else if (event.target.classList.includes("card")) {
-            event.target.classList += "turnOver"
+        if (event.target.classList.includes("element")) {
+            event.target.classList += "turnOver";
         }
     } );
     
@@ -110,9 +137,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
     
             case "Enter": // Shift
                 event.preventDefault();
-                
-                //TODO: openmodal
-                
+                var modal = this.document.getElementById("exampleModalCenter");
+                modal.ariaHidden = false;
+                modal.classList += "show"
                 break;
     
             case "Escape": // Esc
@@ -124,8 +151,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
     });
 
     window.addEventListener( 'keydown', function ( event ) {
-        if (event.key == " ")
+        if (event.key == " " && this.localStorage.getItem("difficulty") == null)
         {
+            event.repeat = 1;
             event.preventDefault();
             if (this.document.getElementById("welcome-div") != null) {
                 this.document.getElementById("welcome-div").remove();

@@ -28,12 +28,44 @@
 			<hr>
 			<h2 class="sub-heading">Periodic Table Memory Game</h2>
 		</div>
-		<div class="container" id="gameDiv">
+		<div id="gameDiv">
 			<div id="welcome-div">
 				<h1 class="periodic-number">Press <kbd>SPACE</kbd> to start</h1>
 			</div>
 			<div id="grid-div" class="hidden"></div>
 		</div>
+		<!-- Modal -->
+		<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+			aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLongTitle">Set difficulty below</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="inline-block element">
+							<p>12 x 12 grid</p>
+							<button type="button" id="easyButton" class="btn btn-secondary"
+								data-dismiss="modal">Easy</button>
+						</div>
+						<div class="inline-block">
+							<p>16 x 16 grid</p>
+							<button type="button" id="mediumButton" class="btn btn-secondary"
+								data-dismiss="modal">Medium</button>
+						</div>
+						<div class="inline-block">
+							<p>20 x 20 grid</p>
+							<button type="button" id="hardButton" class="btn btn-secondary"
+								data-dismiss="modal">hard</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	</div>
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->

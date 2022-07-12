@@ -47,7 +47,7 @@ p, h1, h2, h3, h4, h5, h6, a {
 /* 
 * Media Queries 
 */
-@media screen and (min-width: 350px) {
+@media screen and (max-width: 350px) {
     p {
         font-size: 0.5rem;
     }
@@ -57,9 +57,22 @@ p, h1, h2, h3, h4, h5, h6, a {
         min-width: 50px;
     }
 
+    .atomic-symbol {
+        font-size: smaller;
+        padding: 5px;
+    }
+
+    .atomic-name {
+        font-size: smaller;
+        word-wrap: break-word;
+    }
+
+    #grid-div {
+        gap: 0.5rem;
+    }
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (max-width: 480px) {
     p {
         font-size: 0.7rem;
     }
@@ -68,23 +81,27 @@ p, h1, h2, h3, h4, h5, h6, a {
         min-height: 20px;
         min-width: 50px;
     }
+
+    #grid-div {
+        gap: 0.5rem;
+    }
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (max-width: 750px) {
     .element.element:not(#headerIcon) {
         min-height: 40px;
         min-width: 50px;
     }
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (max-width: 992px) {
     .element.element:not(#headerIcon) {
         min-height: 60px;
         min-width: 50px;
     }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (max-width: 1200px) {
     .element.element:not(#headerIcon) {
         min-width: 50px;
     }
@@ -122,7 +139,7 @@ html, body {
 }
 
 h1, i, a {
-    padding: 10px;
+    padding: 5px;
     text-align: center;
 }
 
@@ -185,9 +202,10 @@ h1, i, a {
 }
 
 .atomic-name {
+    display: block;
     font-size: xx-small;
     text-align: center;
-    padding-left: 5px;
+    clear: both;
 }
 
 .main-heading {
@@ -195,11 +213,16 @@ h1, i, a {
     font-weight: bold;
     padding: 20px 0px;
     display: inline-block;
+    -webkit-animation: change-glow-color 10s ease-in 0s infinite normal;
+    -moz-animation: change-glow-color 10s ease-in 0s infinite normal;
+    -ms-animation: change-glow-color 10s ease-in 0s infinite normal;
+    animation: change-glow-color 10s ease-in 0s infinite normal;
+    text-shadow: 0px 0px 30px #40ff2f;
 }
 
 .sub-heading {
     font-size: 1em;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
 }
 
 .background {
@@ -216,6 +239,7 @@ h1, i, a {
 
 #gameDiv {
     min-height: 65vh;
+    max-width: 80vw;
 }
 
 #welcome-div {
@@ -231,8 +255,8 @@ h1, i, a {
 #grid-div {
     width: 100%;
     min-height: 65vh;
-    padding: 25px;
-    background-color: blue;
+    padding: 10px;
+    border-color: blue;
     border-radius: 10px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -241,3 +265,74 @@ h1, i, a {
 }
 
 .card {}
+
+.turnover {
+    transform: rotateY(0);
+    /* background: #02b3e4; */
+    cursor: default;
+    animation-name: flipInY;
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+    animation-duration: .75s;
+}
+
+#exampleModalCenter {
+    display: block;
+}
+
+.modal-body div {
+    padding: 20px;
+    vertical-align: middle;
+    justify-content: center;
+}
+
+.modal-body {
+    min-height: 200px;
+}
+
+/* ---------- Animations --------- */
+
+/* animations */
+@keyframes flipInY {
+    from {
+        transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+        animation-timing-function: ease-in;
+        opacity: 0;
+    }
+
+    40% {
+        transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+        animation-timing-function: ease-in;
+    }
+
+    60% {
+        transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+        opacity: 1;
+    }
+
+    80% {
+        transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+    }
+
+    to {
+        transform: perspective(400px);
+    }
+}
+
+@keyframes change-glow-color {
+    15% {
+        text-shadow: 0px 0px 30px #40ff2f;
+    }
+
+    35% {
+        text-shadow: 0px 0px 30px #ff2ff5;
+    }
+
+    70% {
+        text-shadow: 0px 0px 30px rgb(0, 247, 255);
+    }
+
+    85% {
+        text-shadow: 0px 0px 30px #40ff2f;
+    }
+}
