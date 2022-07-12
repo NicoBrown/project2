@@ -20,7 +20,7 @@ function playGame() {
 
             var div = document.createElement("div");
             div.classList += "element";
-            console.log(element[number]);
+            div.addEventListener("click", checkCard);
             
             var atomicNumber = document.createElement("p1");
             atomicNumber.classList += "atomic-number";
@@ -57,6 +57,25 @@ function getData(data)
 function resetGame() {
 
     localStorage.clear();
+
+}
+
+function checkCard(event) {
+
+    if (localStorage.getItem("currentCard") == null)
+    {
+        localStorage.setItem("currentCard", event.currentTarget.firstChild.textContent);
+    }
+    
+    if (event.currentTarget.firstChild.textContent == localStorage.getItem("currentCard"))
+    {
+        event.currentTarget.classList += "show";
+    }
+
+    else {
+        event.currentTarget.classList += "hide";
+    }
+
 
 }
 
@@ -101,11 +120,13 @@ function generateRandomNumbers() {
 
 document.addEventListener("DOMContentLoaded", function (event) {
     
-    window.addEventListener( 'onclick', function ( event ) {
+    window.addEventListener('click', function (event) {
         var modal = this.document.getElementById("exampleModalCenter");
 
-        if (event.target.classList.includes("btn")) {
-            console.log(event.target)
+        var target = event.target;
+
+        if (target.classList.contains("btn")) {
+            console.log(target);
             switch (event.target) {
                 case "easyButton": // Easy mode clicked
                     modal.className += "hidden";
@@ -124,12 +145,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     break;
             }
         }
-        console.log(event.target)
-
-        if (event.target.classList.includes("element")) {
-            event.target.classList += "turnOver";
-        }
-    } );
+    });
     
     
     window.addEventListener( 'keydown', function ( event ) {
@@ -139,7 +155,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 event.preventDefault();
                 var modal = this.document.getElementById("exampleModalCenter");
                 modal.ariaHidden = false;
-                modal.classList += "show"
+                modal.classList += "show";
                 break;
     
             case "Escape": // Esc

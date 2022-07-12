@@ -77,6 +77,11 @@ p, h1, h2, h3, h4, h5, h6, a {
         font-size: 0.7rem;
     }
 
+    .atomic-symbol {
+        font-size: small;
+        padding: 5px !important;
+    }
+
     .element {
         min-height: 20px;
         min-width: 50px;
@@ -176,24 +181,6 @@ h1, i, a {
     font-weight: bold;
 }
 
-@keyframes change-color {
-    15% {
-        border: 5px solid #40ff2f;
-    }
-
-    35% {
-        border: 5px solid #ff2ff5
-    }
-
-    70% {
-        border: 5px solid rgb(0, 247, 255);
-    }
-
-    85% {
-        border: 5px solid #40ff2f;
-    }
-}
-
 .atomic-number {
     font-size: xx-small;
     padding-left: 5px;
@@ -240,6 +227,8 @@ h1, i, a {
 #gameDiv {
     min-height: 65vh;
     max-width: 80vw;
+    justify-content: center;
+    margin: 0 8vw;
 }
 
 #welcome-div {
@@ -278,6 +267,7 @@ h1, i, a {
 
 #exampleModalCenter {
     display: block;
+    z-index: -1;
 }
 
 .modal-body div {
@@ -316,6 +306,24 @@ h1, i, a {
 
     to {
         transform: perspective(400px);
+    }
+}
+
+@keyframes change-color {
+    15% {
+        border: 5px solid #40ff2f;
+    }
+
+    35% {
+        border: 5px solid #ff2ff5
+    }
+
+    70% {
+        border: 5px solid rgb(0, 247, 255);
+    }
+
+    85% {
+        border: 5px solid #40ff2f;
     }
 }
 
