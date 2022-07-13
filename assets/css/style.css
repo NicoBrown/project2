@@ -253,16 +253,31 @@ h1, i, a {
     grid-gap: 1rem;
 }
 
-.card {}
-
-.turnover {
-    transform: rotateY(0);
-    /* background: #02b3e4; */
+.card {
     cursor: default;
-    animation-name: flipInY;
     -webkit-backface-visibility: visible !important;
     backface-visibility: visible !important;
+}
+
+.turnOver {
+    transform: rotateY(0);
+    animation-name: flipInY;
     animation-duration: .75s;
+    animation-iteration-count: 1;
+}
+
+.faceUp {
+    background: #02e415;
+    cursor: default;
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+}
+
+.faceDown {
+    background: #02b3e4;
+    cursor: default;
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
 }
 
 #exampleModalCenter {
