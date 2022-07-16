@@ -71,11 +71,21 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate th
   
 ### Errors
 
+In the `checkcard()` function the length of an if statement that checks there is already an object in the array had to be changed from one to three
+because I have some prototype functions that are showing up as enumerable in it
+```
+(3) [div.card.faceUp.event-disabled, …]
+0: div.card.faceUp.event-disabled
+length: 3
+[[Prototype]]:Array(0)
+[[Prototype]]: object
+
+```
+
 ### Accessibility testing
 ### Further Testing
 ## Known Bugs
 
--   The gaps between section are inconsistent
 
 ## Deployment
 

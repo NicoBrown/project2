@@ -18,7 +18,7 @@
 	<div class="container">
 		<canvas class="background"></canvas>
 		<div class="text-align-center" id="heading-div">
-			<div class="element" id="headerIcon">
+			<div class="headingElement" id="headerIcon">
 				<p class="atomic-number">9</p>
 				<h1>El</h1>
 				<p class="atomic-name">Elementium</p>
@@ -29,43 +29,26 @@
 			<h2 class="sub-heading">Periodic Table Memory Game</h2>
 		</div>
 		<div id="gameDiv">
-			<div id="welcome-div">
-				<h1 class="periodic-number">Press <kbd>SPACE</kbd> to start</h1>
-			</div>
-			<div id="grid-div" class="hidden"></div>
-		</div>
-		<!-- Modal -->
-		<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-			aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-centered" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLongTitle">Set difficulty below</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
+			<div id="welcome-div" class=>
+				<h1 class="welcome-text row">Select difficulty below to start:</h1>
+				<div class="col-12">
+					<div class="inline-block element col-3">
+						<p>12 x 12 grid</p>
+						<button type="button" id="easyButton" class="btn btn-secondary">Easy</button>
 					</div>
-					<div class="modal-body">
-						<div class="inline-block element">
-							<p>12 x 12 grid</p>
-							<button type="button" id="easyButton" class="btn btn-secondary"
-								data-dismiss="modal">Easy</button>
-						</div>
-						<div class="inline-block">
-							<p>16 x 16 grid</p>
-							<button type="button" id="mediumButton" class="btn btn-secondary"
-								data-dismiss="modal">Medium</button>
-						</div>
-						<div class="inline-block">
-							<p>20 x 20 grid</p>
-							<button type="button" id="hardButton" class="btn btn-secondary"
-								data-dismiss="modal">hard</button>
-						</div>
+					<div class="inline-block col-3">
+						<p>16 x 16 grid</p>
+						<button type="button" id="mediumButton" class="btn btn-secondary">Medium</button>
+					</div>
+					<div class="inline-block col-3">
+						<p>20 x 20 grid</p>
+						<button type="button" id="hardButton" class="btn btn-secondary">hard</button>
 					</div>
 				</div>
 			</div>
+			<div id="grid-div" class="grid-div"></div>
 		</div>
-	</div>
+		<h2 class="footer-text">Press <kbd>Enter</kbd> to change difficulty</h2>
 	</div>
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->

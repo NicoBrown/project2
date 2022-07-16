@@ -12,7 +12,6 @@
 body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
-    height: 97vh;
     overflow: hidden;
 }
 
@@ -29,10 +28,6 @@ p, h1, h2, h3, h4, h5, h6, a {
     overflow-wrap: break-word;
     color: #505050;
     margin: 0;
-}
-
-#root, #__next {
-    isolation: isolate;
 }
 
 .ns {
@@ -52,62 +47,64 @@ p, h1, h2, h3, h4, h5, h6, a {
         font-size: 0.5rem;
     }
 
-    .element {
-        min-height: 20px;
-        min-width: 50px;
-    }
-
     .atomic-symbol {
-        font-size: smaller;
-        padding: 5px;
+        font-size: medium;
+        padding: 15px;
     }
 
     .atomic-name {
-        font-size: smaller;
+        font-size: x-small;
         word-wrap: break-word;
     }
 
     #grid-div {
         gap: 0.5rem;
     }
+
+    #grid-div h1, .footer-text {
+        font-size: medium;
+    }
+
+    #heading-div h1, #heading-div h2 {
+        font-size: large;
+    }
 }
 
 @media screen and (max-width: 480px) {
-    p {
-        font-size: 0.7rem;
-    }
-
-    .atomic-symbol {
-        font-size: small;
-        padding: 5px !important;
-    }
-
-    .element {
-        min-height: 20px;
-        min-width: 50px;
-    }
-
     #grid-div {
         gap: 0.5rem;
+    }
+
+    .atomic-name {
+        font-size: x-small !important;
+        word-wrap: break-word;
+    }
+
+    #heading-div h1, #heading-div h2 {
+        font-size: large;
+    }
+
+    #grid-div h1, .footer-text {
+        font-size: medium;
     }
 }
 
 @media screen and (max-width: 750px) {
-    .element.element:not(#headerIcon) {
+    .faceDown, .faceUp {
         min-height: 40px;
         min-width: 50px;
     }
 }
 
 @media screen and (max-width: 992px) {
-    .element.element:not(#headerIcon) {
+    .faceDown, .faceUp {
         min-height: 60px;
         min-width: 50px;
     }
 }
 
 @media screen and (max-width: 1200px) {
-    .element.element:not(#headerIcon) {
+    .faceDown, .faceUp {
         min-width: 50px;
     }
 }
@@ -127,9 +124,8 @@ General css styling and selectors
 html, body {
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
+    overflow: hidden;
     font-family: 'Rubik', sans-serif;
-    /* background-color: linear-gradient( white , black); */
 }
 
 .dropdown-menu, nav, .navbar-nav, a, label {
@@ -157,32 +153,66 @@ h1, i, a {
     text-align: center;
 }
 
-#heading-div {
-    margin-top: 20px;
-    min-height: 25vh;
+.background {
+    position: absolute;
+    z-index: -1;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    align-items: center;
+    justify-content: center;
+    background-size: 300% 300%;
+    background-image: linear-gradient(-45deg,
+            #3C6997 0%,
+            #5ADBFF 25%,
+            #FFDD4A 51%,
+            #FE9000 100%);
+    animation: AnimateBG 10s ease infinite;
 }
 
-.element {
+@keyframes AnimateBG {
+    0% {
+        background-position: 0% 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+#heading-div {
+    margin-top: 20px;
+}
+
+.headingElement {
     border-radius: 10px;
     box-sizing: border-box;
     display: inline-block;
+    box-shadow: 10px 5px 5px #02e415;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
-    border: 5px solid #40ff2f;
+    border: 5px solid #505050;
     -webkit-animation: change-color 10s ease-in 0s infinite normal;
     -moz-animation: change-color 10s ease-in 0s infinite normal;
     -ms-animation: change-color 10s ease-in 0s infinite normal;
     animation: change-color 10s ease-in 0s infinite normal;
 }
 
-.element h1 {
+.headingElement h1 {
     padding: 0px 20px;
     text-align: center;
     font-weight: bold;
 }
 
 .atomic-number {
-    font-size: xx-small;
+    font-size: small;
     padding-left: 5px;
     align-self: flex-start;
     text-align: left;
@@ -190,7 +220,7 @@ h1, i, a {
 
 .atomic-name {
     display: block;
-    font-size: xx-small;
+    font-size: small;
     text-align: center;
     clear: both;
 }
@@ -207,41 +237,39 @@ h1, i, a {
     text-shadow: 0px 0px 30px #40ff2f;
 }
 
+hr {
+    color: #505050;
+    border: 5px #505050 solid;
+    border-radius: 5px;
+}
+
 .sub-heading {
-    font-size: 1em;
-    padding-bottom: 20px;
-}
-
-.background {
-    position: absolute;
-    z-index: -1;
-    height: 100vh;
-    width: 100vw;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #ededed;
-}
-
-#gameDiv {
-    min-height: 65vh;
-    max-width: 80vw;
-    justify-content: center;
-    margin: 0 8vw;
+    font-size: 2em;
+    color: #505050;
 }
 
 #welcome-div {
     width: 100%;
     min-height: 65vh;
-    background-color: aqua;
+    background-color: antiquewhite;
+    border: 5px #505050 solid;
+    border-radius: 10px;
     display: flex;
+    margin: 0;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    align-content: center;
 }
 
-#grid-div {
+#welcome-div h1 {
+    color: #505050;
+    clear: both;
+    display: block;
+    padding-bottom: 50px;
+}
+
+.grid-div {
     width: 100%;
     min-height: 65vh;
     padding: 10px;
@@ -259,41 +287,46 @@ h1, i, a {
     backface-visibility: visible !important;
 }
 
-.turnOver {
+.faceUp {
+    background: #02b3e4;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border: 5px solid #505050;
     transform: rotateY(0);
     animation-name: flipInY;
     animation-duration: .75s;
     animation-iteration-count: 1;
 }
 
-.faceUp {
-    background: #02e415;
-    cursor: default;
-    -webkit-backface-visibility: visible !important;
-    backface-visibility: visible !important;
-}
-
 .faceDown {
-    background: #02b3e4;
-    cursor: default;
-    -webkit-backface-visibility: visible !important;
-    backface-visibility: visible !important;
+    background: #929292;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border: 5px solid #505050;
+    animation: scale 0.5s 1;
 }
 
-#exampleModalCenter {
-    display: block;
-    z-index: -1;
+.match {
+    background: #02e415;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border: 5px solid #0099c4;
+    pointer-events: none;
+    animation: scale 0.5s 1;
 }
 
-.modal-body div {
-    padding: 20px;
-    vertical-align: middle;
-    justify-content: center;
+.event-disabled {
+    pointer-events: none;
 }
 
-.modal-body {
-    min-height: 200px;
+.footer-text {
+    padding: 10px;
 }
+
+
 
 /* ---------- Animations --------- */
 
@@ -305,18 +338,14 @@ h1, i, a {
         opacity: 0;
     }
 
-    40% {
-        transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+    33% {
+        transform: perspective(400px) rotate3d(0, 1, 0, -10deg);
         animation-timing-function: ease-in;
     }
 
-    60% {
-        transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+    66% {
+        transform: perspective(400px) rotate3d(0, 1, 0, 5deg);
         opacity: 1;
-    }
-
-    80% {
-        transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
     }
 
     to {
@@ -326,19 +355,19 @@ h1, i, a {
 
 @keyframes change-color {
     15% {
-        border: 5px solid #40ff2f;
+        box-shadow: 0px 0px 30px #40ff2f;
     }
 
     35% {
-        border: 5px solid #ff2ff5
+        box-shadow: 0px 0px 30px #ff2ff5;
     }
 
     70% {
-        border: 5px solid rgb(0, 247, 255);
+        box-shadow: 0px 0px 30px rgb(0, 247, 255);
     }
 
     85% {
-        border: 5px solid #40ff2f;
+        box-shadow: 0px 0px 30px #40ff2f;
     }
 }
 
@@ -357,5 +386,15 @@ h1, i, a {
 
     85% {
         text-shadow: 0px 0px 30px #40ff2f;
+    }
+}
+
+@keyframes scale {
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
     }
 }
