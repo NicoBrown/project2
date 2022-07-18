@@ -1,14 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik&family=Work+Sans&display=swap');
 
-*, *::before, *::after {
-    box-sizing: border-box;
-}
-
-* {
-    margin: 0;
-    border: 0;
-}
-
 body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
@@ -44,7 +35,7 @@ p, h1, h2, h3, h4, h5, h6, a {
 */
 @media screen and (max-width: 350px) {
     p {
-        font-size: 0.5rem;
+        font-size: 1em;
     }
 
     .atomic-symbol {
@@ -61,12 +52,20 @@ p, h1, h2, h3, h4, h5, h6, a {
         gap: 0.5rem;
     }
 
-    #grid-div h1, .footer-text {
+    #grid-div h1, .footer-text, #welcome-div h1 {
         font-size: medium;
+        padding: 10px;
     }
 
     #heading-div h1, #heading-div h2 {
         font-size: large;
+    }
+
+    #welcome-div div {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 10px;
     }
 }
 
@@ -87,6 +86,7 @@ p, h1, h2, h3, h4, h5, h6, a {
     #grid-div h1, .footer-text {
         font-size: medium;
     }
+
 }
 
 @media screen and (max-width: 750px) {
@@ -239,8 +239,10 @@ h1, i, a {
 
 hr {
     color: #505050;
-    border: 5px #505050 solid;
+    border: 2px #505050 solid;
     border-radius: 5px;
+    height: 3px;
+    background-color: #505050;
 }
 
 .sub-heading {
@@ -326,11 +328,15 @@ hr {
     padding: 10px;
 }
 
+#modal {
+    padding-top: 30px
+}
+
 
 
 /* ---------- Animations --------- */
 
-/* animations */
+/* animation taken from https://www.tutorialspoint.com/css/css_animation_flip_in_y.htm */
 @keyframes flipInY {
     from {
         transform: perspective(400px) rotate3d(0, 1, 0, 90deg);

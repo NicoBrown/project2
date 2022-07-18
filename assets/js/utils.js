@@ -1,5 +1,7 @@
 /* jshint -W119, -W104 */
-function getPeriodicElements(cb){
+var randNum = Math.floor(Math.random() * 119);
+
+function getPeriodicElements(cb) {
 
     var xhr = new XMLHttpRequest();
 
@@ -12,14 +14,13 @@ function getPeriodicElements(cb){
             getData(JSON.parse(this.responseText));
         }
     };
-};
+}
 
 function generateRandomNumbers() {
     var difficultyNum = localStorage.getItem("difficulty");
     var numberArray = [];
     do {
-        var randNum = Math.floor(Math.random() * 119);
-        numberArray.push(randNum);   
+        numberArray.push(randNum);
     }
     while (numberArray.length < difficultyNum);
 
@@ -28,7 +29,6 @@ function generateRandomNumbers() {
     return shuffledArray; 
 }
 
-    
 function setDifficulty(difficulty){
     //set local storage and set grid into correct number of columns
     if (difficulty == "easy" || difficulty == undefined) {
@@ -49,8 +49,8 @@ function setDifficulty(difficulty){
 }
 
 function shuffleGridDeck() {
-    var gridDiv = document.getElementById('grid-div');
-    for (var i = gridDiv.children.length; i >= 0; i--) {
+    var gridDiv = document.getElementById("grid-div");
+    for (let i = gridDiv.children.length; i >= 0; i--) {
         gridDiv.appendChild(gridDiv.children[Math.random() * i | 0]);
     }
 }
