@@ -1,29 +1,23 @@
 <h1 align="center">Milestone Project 2</h1>
-                ========================
-<h2 align="center">Elemental</h2>
+![Screenshot 2022-07-18 072220](https://user-images.githubusercontent.com/69271605/179501523-51520bbd-1552-4ca0-8d95-946c52c34361.jpg)
 <p align="center">A Periodic Table Memory Game</p>
 
-<div align="center">
-  <a href="../commits/main" target="_self"><img alt="GitHub commits" src="#"></a>
-  <a href="../licence.md" target="_self"><img alt="Licence" src="#"></a>
-</div>
 <br> 
 <div align="center">
-[View the live project here.](https://nicobrown.github.io/project2/)
+[View the live project here](https://nicobrown.github.io/project2/)
 
 <br>  
 </div>
 <br> 
 
 ## Introduction
-===
 This project was developed as a part of [code institutes](https://codeinstitute.net/) Full Stack Development Diploma's - Interactive Frontend Development Milestone Project
 The project is a simple memory based card game where data is collected from an API, displayed and altered using javascript based on user actions.
 
 The game has three modes: easy, medium and hard corresponding to different numbers of cards in the grid. When all cards have been paired up the user is prompted to play again and select a new difficulty.
 
 ## Design
-===
+
 ### Colours
 The background colour were derived from complementry colours found on [https://coolors.co/]
 ### Layout
@@ -39,12 +33,10 @@ The basic semantic layout of the page was:
 
 -- Footer --
 ## Features
-===
 
 #TODO
 
 ## User Experience (UX)
-===
 -   ### User stories
 
     #TODO
@@ -53,7 +45,6 @@ The basic semantic layout of the page was:
     - “So that”: how does their immediate desire to do something this fit into their bigger picture? What’s the overall benefit they’re trying to achieve? What is the big problem that needs solving?
 
 ## Technologies Used
-===
 ### Languages Used
 
 -   [HTML5](https://en.wikipedia.org/wiki/HTML5)
@@ -67,7 +58,6 @@ The basic semantic layout of the page was:
     - GitHub is used to store the projects code after being pushed from Git.
 
 ## Testing
-===
 ### HTML
 
 The W3C html checker returned one error related to a class attribute with no value:
@@ -99,11 +89,9 @@ On investigation, items 1 & 3 are related; the developer reccomens that all vari
 
 I also used postman to test the enpoints for the API and see what format the response was before starting.
 ### Accessibility testing
-===
 Lightinhouse reported a 100 accessibility score, I added aria attributes to make the game more accessible for screen-readers.
 ### Further Testing
 ## Known Bugs
-===
 In the `checkcard()` function the length of an if statement that checks there is already an object in the array had to be changed from one to three
 because I have some prototype functions that are showing up as enumerable in it
 
@@ -116,7 +104,6 @@ length: 3
 ```
 The cards are populated with data coming from an API call in some instances the cards are rendered before the data is received resulting in fewer cards being created.
 ## Deployment
-===
 
 ### GitHub Pages
 
@@ -164,7 +151,6 @@ $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
 Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) to retrieve pictures for some of the buttons and more detailed explanations of the above process.
 
 ## Credits
-===
 
 ### Code
 The API call was made to ['https://periodic-table-elements-info.herokuapp.com/elements'] the retreive all of the element data used in the game
