@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik&family=Work+Sans&display=swap');
 
 body {
-    line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     overflow: hidden;
 }
@@ -40,7 +39,6 @@ p, h1, h2, h3, h4, h5, h6, a {
 
     .atomic-symbol {
         font-size: medium;
-        padding: 15px;
     }
 
     .atomic-name {
@@ -57,26 +55,31 @@ p, h1, h2, h3, h4, h5, h6, a {
         padding: 10px;
     }
 
-    #heading-div h1, #heading-div h2 {
-        font-size: large;
-    }
-
     #welcome-div div {
         display: inline-flex;
         flex-direction: column;
         align-items: center;
         padding-top: 10px;
     }
+
+    #welcome-text {
+        font-size: 1rem !important;
+    }
+
+    .col-3 {
+        min-width: 100%;
+    }
 }
 
 @media screen and (max-width: 480px) {
-    #grid-div {
-        gap: 0.5rem;
-    }
 
     .atomic-name {
         font-size: x-small !important;
         word-wrap: break-word;
+    }
+
+    #welcome-text {
+        font-size: 1.5rem !important;
     }
 
     #heading-div h1, #heading-div h2 {
@@ -87,25 +90,8 @@ p, h1, h2, h3, h4, h5, h6, a {
         font-size: medium;
     }
 
-}
-
-@media screen and (max-width: 750px) {
-    .faceDown, .faceUp {
-        min-height: 40px;
-        min-width: 50px;
-    }
-}
-
-@media screen and (max-width: 992px) {
-    .faceDown, .faceUp {
-        min-height: 60px;
-        min-width: 50px;
-    }
-}
-
-@media screen and (max-width: 1200px) {
-    .faceDown, .faceUp {
-        min-width: 50px;
+    #game-div {
+        max-height: 55vh;
     }
 }
 
@@ -156,7 +142,7 @@ h1, i, a {
 .background {
     position: absolute;
     z-index: -1;
-    height: 100vh;
+    height: 110vh;
     width: 100vw;
     top: 0;
     bottom: 0;
@@ -188,7 +174,11 @@ h1, i, a {
 }
 
 #heading-div {
-    margin-top: 20px;
+    margin-top: 10px;
+}
+
+#heading-div h1 {
+    font-size: large;
 }
 
 .headingElement {
@@ -218,6 +208,10 @@ h1, i, a {
     text-align: left;
 }
 
+.atomic-symbol {
+    padding: 0;
+}
+
 .atomic-name {
     display: block;
     font-size: small;
@@ -235,6 +229,7 @@ h1, i, a {
     -ms-animation: change-glow-color 10s ease-in 0s infinite normal;
     animation: change-glow-color 10s ease-in 0s infinite normal;
     text-shadow: 0px 0px 30px #40ff2f;
+    line-height: 1.8;
 }
 
 hr {
@@ -243,6 +238,7 @@ hr {
     border-radius: 5px;
     height: 3px;
     background-color: #505050;
+    margin: 10px;
 }
 
 .sub-heading {
@@ -252,7 +248,7 @@ hr {
 
 #welcome-div {
     width: 100%;
-    min-height: 65vh;
+    min-height: 70vh;
     background-color: antiquewhite;
     border: 5px #505050 solid;
     border-radius: 10px;
@@ -273,20 +269,21 @@ hr {
 
 .grid-div {
     width: 100%;
-    min-height: 65vh;
+    min-height: 60vh;
     padding: 10px;
     border-color: blue;
     border-radius: 10px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
-    grid-gap: 1rem;
+    grid-gap: 0.5rem;
 }
 
 .card {
     cursor: default;
     -webkit-backface-visibility: visible !important;
     backface-visibility: visible !important;
+    max-height: 15vh;
 }
 
 .faceUp {

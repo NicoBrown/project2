@@ -1,6 +1,5 @@
 /* jshint -W119, -W104 */
-var randNum = Math.floor(Math.random() * 119);
-
+var randNum; 
 function getPeriodicElements(cb) {
 
     var xhr = new XMLHttpRequest();
@@ -20,6 +19,7 @@ function generateRandomNumbers() {
     var difficultyNum = localStorage.getItem("difficulty");
     var numberArray = [];
     do {
+        randNum = Math.floor(Math.random() * 119);
         numberArray.push(randNum);
     }
     while (numberArray.length < difficultyNum);
