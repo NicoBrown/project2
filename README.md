@@ -71,6 +71,7 @@ I wanted to keep the interface as minimal and simple as possible, so I went with
 ![image](https://user-images.githubusercontent.com/69271605/179901733-7f998d44-4367-4b6e-bda0-40d515fc1723.png)
 
 I made sure the site was responsive and fit different device screen sizes with CSS and didnt overflow.
+![image](https://user-images.githubusercontent.com/69271605/180041329-b32f1002-91be-4534-b569-e43b839de15b.png)
 
 
 ## Technologies Used
