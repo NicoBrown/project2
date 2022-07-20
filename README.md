@@ -91,6 +91,11 @@ I made sure the site was responsive and fit different device screen sizes with C
     - Bootstrap was used to create the grid elements and provide responsiveness and OOTB CSS classes.
 
 ## Testing
+
+### Manual testing
+
+I tested the website functionality by writing values to the console as the site was developed. I performed manual testing for the logic and game elements of the site by checking the functionality of each component as they were beign built.
+
 ### HTML
 
 The W3C html checker returned one error related to a class attribute with no value:
